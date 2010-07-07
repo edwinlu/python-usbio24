@@ -28,7 +28,6 @@ class IOModule():
 	def __init__(self,device='/dev/ttyUSB0',timeout=1):
 		self.device = device
 		self.driver = Serial(device,timeout=timeout)
-		self.driver.read(1024) # flush
 		self.set_mode(1)
 
 	def __str__(self):
