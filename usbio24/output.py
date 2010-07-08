@@ -32,21 +32,19 @@ class RelayModule():
 		"""Convenience function to deactivate all relays"""
 		self.set_state()
 
-	def activate(self,relays=[]):
+	def activate(self,relay):
 		"""
 		Version 3 firmware allows for individual pins to be turned on/off, we do this
 		via IOModule.set_pin_high.
 		"""
 
-		for relay in relays:
-			self.io.set_pin_high(self.port, relay)
+		self.io.set_pin_high(self.port, relay)
 
-	def deactivate(self,relays=[]):
+	def deactivate(self,relay):
 		"""
 		Version 3 firmware allows for individual pins to be turned on/off, we do this
 		via IOModule.set_pin_low.
 		"""
 
-		for relay in relays:
-			self.io.set_pin_low(self.port, relay)
+		self.io.set_pin_low(self.port, relay)
 
