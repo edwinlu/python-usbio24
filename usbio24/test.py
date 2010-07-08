@@ -27,25 +27,25 @@ def test_relays(io,port):
 	stdout.write("Activating relays in sequence: ")
 	for times in range(3):
 		for i in range(1,9):
-			relay.activate([i])
+			relay.activate(i)
 			sleep(0.25)
 
 	stdout.write("Deactivating relays in sequence: ")
 	for times in range(3):
 		for i in range(1,9):
-			relay.deactivate([i])
+			relay.deactivate(i)
 			sleep(0.25)
 
 	stdout.write("done.\n")
 
 	stdout.write("Turning on pairs of relays: ")
-	relay.activate([1,8])
+	relay.set_state([1,8])
 	sleep(0.25)
-	relay.activate([2,7])
+	relay.set_state([2,7])
 	sleep(0.25)
-	relay.activate([3,6])
+	relay.set_state([3,6])
 	sleep(0.25)
-	relay.activate([4,5])
+	relay.set_state([4,5])
 	sleep(0.25)
 	relay.reset()
 	stdout.write("done.\n")
