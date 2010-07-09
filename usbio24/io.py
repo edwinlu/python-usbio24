@@ -3,7 +3,7 @@
 """Interface with USB I/O 24 R"""
 
 from serial import Serial
-from struct import pack
+from struct import pack,unpack
 
 class InvalidMode(Exception):
 	pass
@@ -82,7 +82,7 @@ class IOModule():
 		self.driver.write(cmd)
 
 		response = self.driver.read()
-		return pack('B', response)
+		return unpack('B', response)[0]
 
 	def write_port(self,port,data):
 		"""
